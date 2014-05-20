@@ -172,10 +172,6 @@ sub rule_str {
     if ($self->{_inbound_if} ne "any") {
       $rule_str .= " -i $self->{_inbound_if} ";
     }
-  } else {
-    # make this a requirement to prevent users from
-    # inadvertently NATing loopback traffic.
-    return ('inbound-interface not specified', undef);
   }
 
   my $to_dst = "";

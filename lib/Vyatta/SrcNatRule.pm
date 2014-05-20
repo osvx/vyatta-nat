@@ -169,9 +169,9 @@ sub rule_str {
       }
     } else {
       # "masquerade" requires outbound_if.
-      # also make this a requirement for "source" to prevent users from
-      # inadvertently NATing loopback traffic.
+if ($self->{_type} eq "masquerade") {
       return ('outbound-interface not specified', undef);
+}
     }
 
     if (defined($self->{_proto})) {
